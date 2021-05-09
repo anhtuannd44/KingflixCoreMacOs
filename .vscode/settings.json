@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "eslint.lintTask.enable": true,
+    "git.ignoreLimitWarning": true
+}

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.809.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingflixCore.Web", "KingflixCore.Web\KingflixCore.Web.csproj", "{DB0224DA-BF10-4C52-85CF-94803C320FBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingflixCore.Domain", "KingflixCore.Domain\KingflixCore.Domain.csproj", "{31F3299E-6431-48E2-ACE0-DDFA29914CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingflixCore.EF", "KingflixCore.EF\KingflixCore.EF.csproj", "{FB142829-3125-4B92-970A-CBC118BD782E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB0224DA-BF10-4C52-85CF-94803C320FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB0224DA-BF10-4C52-85CF-94803C320FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB0224DA-BF10-4C52-85CF-94803C320FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB0224DA-BF10-4C52-85CF-94803C320FBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F3299E-6431-48E2-ACE0-DDFA29914CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F3299E-6431-48E2-ACE0-DDFA29914CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F3299E-6431-48E2-ACE0-DDFA29914CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F3299E-6431-48E2-ACE0-DDFA29914CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB142829-3125-4B92-970A-CBC118BD782E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB142829-3125-4B92-970A-CBC118BD782E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB142829-3125-4B92-970A-CBC118BD782E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB142829-3125-4B92-970A-CBC118BD782E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FD2730A-8CB6-4EDC-8F7F-65BCDEFE172D}
+	EndGlobalSection
+EndGlobal

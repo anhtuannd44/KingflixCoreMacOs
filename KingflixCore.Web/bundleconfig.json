@@ -1,0 +1,45 @@
+﻿[
+	{
+		"outputFileName": "wwwroot/css/site.min.css",
+		"inputFiles": [
+			"wwwroot/lib/bootstrap/css/bootstrap.css",
+			"wwwroot/assets/css/styleHome.css",
+			"wwwroot/css/site.css"
+		],
+		"minify": {
+			"enabled": true,
+			"renameLocals": true
+		}
+	},
+	{
+		"outputFileName": "wwwroot/js/site.min.js",
+		"inputFiles": [
+			"wwwroot/lib/jquery/jquery.js",
+			"wwwroot/lib/jquery/jquery.slim.js",
+			"wwwroot/lib/popper.js/umd/popper.js",
+			"wwwroot/lib/bootstrap/js/bootstrap.min.js",
+			"wwwroot/assets/js/owlcarousel/owl.carousel.js",
+			"wwwroot/assets/js/tooltip-init.js",
+			"wwwroot/assets/js/animation/wow/wow.min.js",
+			"wwwroot/assets/js/landing.js",
+			"wwwroot/assets/js/landing_sticky.js",
+			"wwwroot/js/site.js"
+		],
+		"minify": {
+			"enabled": true,
+			"renameLocals": true
+		}
+	},
+	{
+		"outputFileName": "wwwroot/js/validation.js",
+		"inputFiles": [
+			"wwwroot/lib/jquery-validate/jquery.validate.js",
+			"wwwroot/lib/jquery-validate/localization/message_vi.js",
+			"wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+		],
+		"minify": {
+			"enabled": true,
+			"renameLocals": true
+		}
+	}
+]
