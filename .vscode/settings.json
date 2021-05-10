@@ -7,13 +7,15 @@
     "eslint.lintTask.enable": true,
     "git.ignoreLimitWarning": true,
     "files.exclude": {
-        "**/.git": true,
+        "**/.git**": true,
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/bin": true,
         "**/obj": true,
-        "**/.vs": true
+        "**/.vs**": true,
+        "**/**.sln": true,
+        "**/**.csproj": true
     }
 }
