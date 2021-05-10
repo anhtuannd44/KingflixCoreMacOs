@@ -1,15 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using KingflixCore.Domain.DomainModel;
 using KingflixCore.EF;
 using KingflixCore.Web.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -83,7 +79,8 @@ namespace KingflixCore.Web
                     facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
                     facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                 })
-                .AddGoogle(googleOpts => {
+                .AddGoogle(googleOpts =>
+                {
                     googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
                     googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
                 });
@@ -177,6 +174,9 @@ namespace KingflixCore.Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "Admin",
+                    pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

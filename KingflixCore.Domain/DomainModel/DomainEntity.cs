@@ -1,6 +1,4 @@
-﻿// 52
-using System;
-namespace KingflixCore.Domain.DomainEntity
+﻿namespace KingflixCore.Domain.DomainEntity
 {
     public abstract class DomainEntity<T>
     {
