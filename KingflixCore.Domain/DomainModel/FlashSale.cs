@@ -12,12 +12,8 @@ namespace KingflixCore.Domain.DomainModel
         {
             FlashSaleCategories = new HashSet<FlashSaleCategory>();
         }
-
-        [Key]
-        public int FlashSaleId { get; set; }
-
+        public string Id { get; set; }
         public string Title { get; set; }
-        [StringLength(1000)]
         public string Cover { get; set; }
         public DateTime TimeStart { get; set; }
         public DateTime TimeEnd { get; set; }

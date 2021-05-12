@@ -141,7 +141,7 @@ namespace KingflixCore.Web
               });
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
-            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+            services.AddTransient(typeof(IRepository<>), typeof(EFRepository<>));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
         }

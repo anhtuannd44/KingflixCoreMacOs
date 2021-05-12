@@ -21,6 +21,6 @@ namespace KingflixCore.Domain.Enums
         [Display(Name = "Chuyển khoản (Thủ công)")]
         Bank = 7,
         [Display(Name = "Khác")]
-        Orther = 8
+        Other = 8
     }
 }

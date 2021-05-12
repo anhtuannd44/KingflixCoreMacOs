@@ -18,26 +18,23 @@ namespace KingflixCore.Domain.DomainModel
         }
 
         [Key]
-        public string CategoryId { get; set; }
-
-        [Required(ErrorMessage = "Mục này không được để trống")]
-        [StringLength(300)]
-        [Display(Name = "Tên gói")]
-        public string Name { get; set; }
-        public TypeOfAccount TypeOfAccount { get; set; }
-        public TypeOfCategory Type { get; set; } //Type Of Category: Netflix/Upsale/Orther
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Alias { get; set; }
+        public TypeOfAccount ProductType { get; set; }
+        public TypeOfCategory CategoryType { get; set; } //Type Of Category: Netflix/Upsale/Other
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         public string Details { get; set; }
-        public string Service { get; set; }
+        public string ServiceInfo { get; set; }
         public string PromotionInfo { get; set; }
         public string Cover { get; set; }
         public int? DateOrderAccept { get; set; }
         public int? DaysGuarantee { get; set; }
-        public string Guarantee { get; set; }
+        public string GuaranteeInfo { get; set; }
         public double GuaranteePrice { get; set; }
         public string Color { get; set; }
-        public string ColorSecondary { get; set; }
+        public string ColorHover { get; set; }
         public string ColorShadow { get; set; }
         public Status Status { get; set; }
 

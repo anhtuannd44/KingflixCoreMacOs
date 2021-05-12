@@ -10,9 +10,7 @@ namespace KingflixCore.Domain.DomainModel
         {
 
         }
-
-        [Key]
-        public int OrderDetailsId { get; set; }
+        public int Id { get; set; }
         public string CategoryName { get; set; }
         public string ImageId { get; set; }
         public double Month { get; set; }
@@ -23,11 +21,9 @@ namespace KingflixCore.Domain.DomainModel
         public bool IsKingflixAccount { get; set; }
         public string CategoryId { get; set; } //ForeignKey
         public string OrderId { get; set; } //ForeignKey
-
-        [ForeignKey("OrderId")]
-        public virtual Order Orders { get; set; }
-        [ForeignKey("CategoryId")]
-        public virtual Category Categories { get; set; }
+        public string Price {get;set;}
+        public virtual Order Order { get; set; }
+        public virtual Category Category { get; set; }
 
     }
 }

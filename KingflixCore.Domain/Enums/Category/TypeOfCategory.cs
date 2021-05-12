@@ -9,6 +9,6 @@ namespace KingflixCore.Domain.Enums
         [Display(Name = "Bán kèm Netflix")]
         Upsale = 1,
         [Display(Name = "Khác")]
-        Orther = 2,
+        Other = 2,
     }
 }

@@ -6,10 +6,13 @@ namespace KingflixCore.Domain.Enums
     {
         [Display(Name = "Hoàn tất")]
         Done = 0,
+
         [Display(Name = "Chưa thanh toán")]
         WaitingForPay = 1,
-        [Display(Name = "Đang xử lý")]
-        Paid = 2,
+
+        [Display(Name = "Đã xác nhận")]
+        Confirmed = 2,
+
         [Display(Name = "Đã hủy")]
         Cancelled = 3,
     }

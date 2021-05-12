@@ -20,10 +20,11 @@ namespace KingflixCore.Domain.DomainModel
         [Key]
         [Column(Order = 2)]
         public double Month { get; set; }
+        [Required]
         public double PriceSale { get; set; }
 
-        public virtual Price Prices { get; set; }
-        public virtual FlashSale FlashSales { get; set; }
+        public virtual Price Price { get; set; }
+        public virtual FlashSale FlashSale { get; set; }
 
     }
 }

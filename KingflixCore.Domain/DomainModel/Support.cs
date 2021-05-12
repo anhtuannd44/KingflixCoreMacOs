@@ -13,40 +13,18 @@ namespace KingflixCore.Domain.DomainModel
         {
 
         }
-
-        [Key]
-        public int SupportId { get; set; }
-
-        [Required(ErrorMessage = "Bạn chưa nhập Tiêu đề")]
-        [Display(Name = "Tiêu đề")]
+        public int Id { get; set; }
         public string Title { get; set; }
-
-        [Required(ErrorMessage = "Bạn chưa nhập Nội dung")]
-        [Display(Name = "Nội dung yêu cầu")]
         public string Content { get; set; }
-
-        [Display(Name = "Trả lời")]
         public string Reply { get; set; }
-
-        public byte[] Image { get; set; }
-
-        [Display(Name = "Người báo lỗi")]
-        public string UserId { get; set; }
-
-        [Display(Name = "Thời gian yêu cầu")]
-        public DateTime DateCreate { get; set; }
+        public string Image { get; set; }
+        public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-
-        [Required(ErrorMessage = "Phải chọn ít nhất 1 tài khoản báo lỗi")]
-        [Display(Name = "Tài khoản báo lỗi")]
         public string ProductId { get; set; }
-
-        [NotMapped]
-        public List<Product> ProductList = new List<Product>();
-        [ForeignKey("UserId")]
-        public virtual AppUser UserInformation { get; set; }
-        public virtual Product Products { get; set; }
-
+        public Guid UserId { get; set; }
         public SupportStatus Status { get; set; }
+        public virtual AppUser UserInformation { get; set; }
+        public virtual Product Product { get; set; }
+        
     }
 }
