@@ -1,9 +1,9 @@
-﻿// 54
-using System;
+﻿using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using KingflixCore.Domain.DomainModel;
 using KingflixCore.Domain.Enums;
+using KingflixCore.Services.Interface;
 using KingflixCore.Web.Extensions;
 using KingflixCore.Web.Models.AccountViewModel;
 using Microsoft.AspNetCore.Authentication;
@@ -15,22 +15,23 @@ using Microsoft.Extensions.Logging;
 namespace KingflixCore.Web.Controllers
 {
     [Authorize]
+    [Route("tai-khoan")]
     public class AccountController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        //private readonly IEmailSender _emailSender;
+        private readonly IEmailService _emailService;
         private readonly ILogger _logger;
 
         public AccountController(
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
-            //IEmailSender emailSender,
+            IEmailService emailService,
             ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            //_emailSender = emailSender;
+            _emailService = emailService;
             _logger = logger;
         }
 
@@ -39,7 +40,7 @@ namespace KingflixCore.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("login.html", Name = "Login")]
+        [Route("dang-nhap", Name = "Login")]
         public async Task<IActionResult> Login(string returnUrl = null)
         {
             // Clear the existing external cookie to ensure a clean login process
@@ -52,7 +53,7 @@ namespace KingflixCore.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Route("login.html", Name = "Login")]
+        [Route("dang-nhap", Name = "Login")]
         public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -67,22 +68,16 @@ namespace KingflixCore.Web.Controllers
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
-                {
                     return RedirectToAction(nameof(LoginWith2fa), new { returnUrl, model.RememberMe });
-                }
+
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("Người dùng đã bị khóa.");
                     return RedirectToAction(nameof(Lockout));
                 }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Đăng nhập không hợp lệ.");
-                    return View(model);
-                }
+                ModelState.AddModelError(string.Empty, "Email hoặc mật khẩu chưa chính xác");
+                return View(model);
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
         }
 
@@ -205,7 +200,7 @@ namespace KingflixCore.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("register.html")]
+        [Route("dang-ky")]
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -216,7 +211,7 @@ namespace KingflixCore.Web.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         //[ValidateRecaptcha]
-        [Route("register.html")]
+        [Route("dang-ky")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
@@ -231,9 +226,7 @@ namespace KingflixCore.Web.Controllers
                 Email = model.Email,
                 FullName = model.FullName,
                 PhoneNumber = model.PhoneNumber,
-                BirthDay = model.BirthDay,
                 Status = Status.Public,
-                Avatar = string.Empty
             };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -370,6 +363,7 @@ namespace KingflixCore.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
+        [Route("quen-mat-khau")]
         public IActionResult ForgotPassword()
         {
             return View();

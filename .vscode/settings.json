@@ -14,6 +14,133 @@
         "**/.DS_Store": true,
         "**/bin": true,
         "**/obj": true,
-        "**/**.sln": true
-    }
+        "**/**.sln": true,
+        "**/.vs": true
+    },
+    "workbench.colorCustomizations": {
+        "[Default Dark+]": {
+            "editor.background": "#272c35",
+            "tab.activeBackground": "#272c35",
+            "tab.inactiveBackground": "#20252c",
+            "sideBar.background": "#20252c",
+            "scrollbar.shadow": "#3e4653",
+            "terminal.background": "#272c35",
+            "panel.background": "#272c35",
+            "sideBarSectionHeader.background": "#313845",
+            "tab.border": "#1c2026",
+            "editorGroupHeader.tabsBackground": "#20252c",
+            "statusBar.background": "#20252c",
+            "scrollbarSlider.background": "#3e4653",
+            "editor.lineHighlightBackground": "#3e4653",
+            "dropdown.background": "#20252c",
+            "activityBar.background": "#272c35",
+            "titleBar.activeBackground": "#272c35"
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "entity.name.class.attribute.taghelper",
+                "settings": {
+                    "foreground": "#1dc772"
+                }
+            },
+            {
+                "scope": "entity.name.type.interface.cs",
+                "settings": {
+                    "foreground": "#dcdcaa"
+                }
+            },
+            {
+                "scope": "storage.type.interface.cs",
+                "settings": {
+                    "foreground": "#dcdcaa"
+                }
+            },
+            {
+                "scope": "entity.name.type.namespace.cs",
+                "settings": {
+                    "foreground": "#bdbdbd"
+                }
+            },
+            // {
+            //     "scope": "entity.name.tag",
+            //     "settings": {
+            //         "foreground": "#2073d1"
+            //     }
+            // },
+            // {
+            //     "scope": "entity.name.class.element.taghelper",
+            //     "settings": {
+            //         "foreground": "#2073d1"
+            //     }
+            // },
+            // {
+            //     "scope": "entity.other.attribute-name",
+            //     "settings": {
+            //         "foreground": "#6cadf7"
+            //     }
+            // },
+        //     {
+        //         "scope": "string",
+        //         "settings": {
+        //             "foreground": "#c88961"
+        //         }
+        //     },
+        //     {
+        //         "scope": "punctuation.definition.string.end.html",
+        //         "settings": {
+        //             "foreground": "#c88961"
+        //         }
+        //     },
+        //     {
+        //         "scope": "punctuation.definition.string.begin.html",
+        //         "settings": {
+        //             "foreground": "#c88961"
+        //         }
+        //     },
+        //     {
+        //         "scope": "entity.name.variable.parameter.cs",
+        //         "settings": {
+        //             "foreground": "#bbb5b3"
+        //         }
+        //     },
+        //     {
+        //         "scope": "entity.name.type.class.cs",
+        //         "settings": {
+        //             "foreground": "#18a74f"
+        //         }
+        //     },
+        //     {
+        //         "scope": "storage.type.cs",
+        //         "settings": {
+        //             "foreground": "#18a74f"
+        //         }
+        //     },
+        //     {
+        //         "scope": "variable.other.readwrite",
+        //         "settings": {
+        //             "foreground": "#ffffff"
+        //         }
+        //     },
+        //     {
+        //         "scope": "constant.language.boolean.false.cs",
+        //         "settings": {
+        //             "foreground": "#2073d1"
+        //         }
+        //     },
+        //     {
+        //         "scope": "entity.name.variable.local.cs",
+        //         "settings": {
+        //             "foreground": "#bbb5b3"
+        //         }
+        //     },
+        //     {
+        //         "scope": "variable.other.object.cs",
+        //         "settings": {
+        //             "foreground": "#bbb5b3"
+        //         }
+        //     }
+        ]
+    },
 }

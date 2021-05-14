@@ -18,6 +18,8 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using KingflixCore.EF.Interface;
 using Microsoft.Extensions.Options;
+using KingflixCore.Services.Interface;
+using KingflixCore.Services.Implementation;
 
 namespace KingflixCore.Web
 {
@@ -142,6 +144,7 @@ namespace KingflixCore.Web
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<>), typeof(EFRepository<>));
+            services.AddTransient(typeof(IEmailService), typeof(EmailService));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
         }

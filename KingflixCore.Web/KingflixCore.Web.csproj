@@ -8,14 +8,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KingflixCore.EF\KingflixCore.EF.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\KingflixCore.Domain\KingflixCore.Domain.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\AccountViewModel\" />
@@ -37,4 +29,9 @@
   <ItemGroup>
     <Content Remove="wwwroot\assets\css\styleAdmin.css" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KingflixCore.Services\KingflixCore.Services.csproj" />
+  </ItemGroup>
+ 
+ 
 </Project>

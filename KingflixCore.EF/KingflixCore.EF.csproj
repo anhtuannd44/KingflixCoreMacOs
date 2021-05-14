@@ -5,12 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KingflixCore.Domain\KingflixCore.Domain.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -24,5 +18,8 @@
     <Folder Include="Interface\" />
     <Folder Include="Extensions\" />
     <Folder Include="Configurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KingflixCore.Domain\KingflixCore.Domain.csproj" />
   </ItemGroup>
 </Project>
