@@ -9,7 +9,8 @@ namespace KingflixCore.Domain.DomainModel
     [Table("Order")]
     public class Order
     {
-        public Order()
+        public Order(
+        )
         {
             OrderDetails = new HashSet<OrderDetails>();
         }

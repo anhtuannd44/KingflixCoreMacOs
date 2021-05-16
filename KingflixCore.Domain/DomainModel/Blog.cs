@@ -2,11 +2,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KingflixCore.Domain.Enums;
+using KingflixCore.Domain.Interfaces;
 
 namespace KingflixCore.Domain.DomainModel
 {
     [Table("Blogs")]
-    public class Blog
+    public class Blog : IDateTracking
     {
         public Blog()
         {
@@ -21,7 +22,7 @@ namespace KingflixCore.Domain.DomainModel
         public string Description { set; get; }
         public string Content { set; get; }
         public DateTime DateCreated { set; get; }
-        public DateTime? DateModified { set; get; }
+        public DateTime DateModified { set; get; }
         public string SeoKeywords { set; get; }
         public string SeoDescription { set; get; }
         public Status Status { set; get; }

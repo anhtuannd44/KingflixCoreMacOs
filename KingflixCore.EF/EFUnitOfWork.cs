@@ -10,9 +10,9 @@ namespace KingflixCore.EF
         {
             _context = context;
         }
-        public async Task SaveChangeAsync()
+        public async Task<int> SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
         public void Dispose()

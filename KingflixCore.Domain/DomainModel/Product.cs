@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KingflixCore.Domain.Enums;
+using KingflixCore.Domain.Interfaces;
 
 namespace KingflixCore.Domain.DomainModel
 {
     [Table("Product")]
-    public class Product
+    public class Product : IDateTracking
     {
         public Product()
         {
@@ -19,7 +20,7 @@ namespace KingflixCore.Domain.DomainModel
         public string Password { get; set; }
         public DateTime DateEnd { get; set; }
         public DateTime DateCreated { get; set; }
-        public DateTime? DateModified { get; set; }
+        public DateTime DateModified { get; set; }
         public Cycle Cycle { get; set; }
         public string Cover { get; set; }
         public int GroupId { get; set; }

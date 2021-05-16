@@ -26,6 +26,10 @@
     {
       "library": "twitter-bootstrap@5.0.0-beta3",
       "destination": "wwwroot/lib/bootstrap/"
+    },
+    {
+      "library": "ckeditor5@27.1.0",
+      "destination": "wwwroot/lib/ckeditor5"
     }
   ]
 }

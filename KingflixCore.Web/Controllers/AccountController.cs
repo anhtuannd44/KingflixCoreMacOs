@@ -175,17 +175,17 @@ namespace KingflixCore.Web.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("Người dùng với ID: {UserId} đăng nhập bằng bảo mật 2 lớp.", user.Id);
+                _logger.LogInformation($"Người dùng với ID: {user.Id} đăng nhập bằng bảo mật 2 lớp.");
                 return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
             {
-                _logger.LogWarning("Người dùng với ID: {UserId} đã bị khóa.", user.Id);
+                _logger.LogWarning($"Người dùng với ID: {user.Id} đã bị khóa.");
                 return RedirectToAction(nameof(Lockout));
             }
             else
             {
-                _logger.LogWarning("Mã phục hồi không đúng cho người dùng ID: {UserId}", user.Id);
+                _logger.LogWarning($"Mã phục hồi không đúng cho người dùng ID: {user.Id}");
                 ModelState.AddModelError(string.Empty, "Mã phục hồi không chính xác.");
                 return View();
             }
@@ -333,7 +333,7 @@ namespace KingflixCore.Web.Controllers
                     if (result.Succeeded)
                     {
                         await _signInManager.SignInAsync(user, isPersistent: false);
-                        _logger.LogInformation("Người dùng tạo tài khoản với {Name}.", info.LoginProvider);
+                        _logger.LogInformation($"Người dùng tạo tài khoản với {info.LoginProvider}.");
                         return RedirectToLocal(returnUrl);
                     }
                 }

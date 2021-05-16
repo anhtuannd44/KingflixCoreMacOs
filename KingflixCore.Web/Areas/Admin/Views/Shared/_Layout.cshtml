@@ -1,0 +1,197 @@
+﻿@using Microsoft.AspNetCore.Localization
+@{
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Kingflix | @ViewData["Title"]</title>
+    <meta name="description" content='@ViewData["MetaKeyword"]'>
+    <meta name="keywords" content='@ViewData["MetaDescription"]' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <environment exclude="Development">
+        <link href="~/css/site.min.css" rel="stylesheet" />
+    </environment>
+    <environment include="Development">
+        <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/assets/css/styleAdmin.css" rel="stylesheet" />
+    </environment>
+    @RenderSection("Styles", required: false)
+
+</head>
+<body class='@ViewData["BodyClass"] landing-page'>
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <!-- Page Header Start-->
+      <div class="page-header">
+        <div class="header-wrapper row m-0">
+          <form class="form-inline search-full col" action="#" method="get">
+            <div class="form-group w-100">
+              <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative">
+                  <input class="demo-input Typeahead-input form-control-plaintext w-100" type="text" placeholder="Search Cuba .." name="q" title="" autofocus>
+                  <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span></div><i class="close-search" data-feather="x"></i>
+                </div>
+                <div class="Typeahead-menu"></div>
+              </div>
+            </div>
+          </form>
+          <div class="header-logo-wrapper col-auto p-0">
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo.png" alt=""></a></div>
+            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
+          </div>
+          <div class="nav-right col-12 pull-right right-header p-0">
+            <ul class="nav-menus">
+              <li class="onhover-dropdown">
+                <div class="notification-box"><i data-feather="bell"> </i><span class="badge rounded-pill badge-secondary">4</span></div>
+                <ul class="notification-dropdown onhover-show-div">
+                  <li><i data-feather="bell"></i>
+                    <h6 class="f-18 mb-0">Notitications</h6>
+                  </li>
+                  <li>
+                    <p><i class="fa fa-circle-o me-3 font-primary"> </i>Delivery processing <span class="pull-right">10 min.</span></p>
+                  </li>
+                  <li>
+                    <p><i class="fa fa-circle-o me-3 font-success"></i>Order Complete<span class="pull-right">1 hr</span></p>
+                  </li>
+                  <li>
+                    <p><i class="fa fa-circle-o me-3 font-info"></i>Tickets Generated<span class="pull-right">3 hr</span></p>
+                  </li>
+                  <li>
+                    <p><i class="fa fa-circle-o me-3 font-danger"></i>Delivery Complete<span class="pull-right">6 hr</span></p>
+                  </li>
+                  <li><a class="btn btn-primary" href="#">Check all notification</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="mode"><i class="fa fa-moon-o"></i></div>
+              </li>
+              <li class="maximize"><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
+              <li class="profile-nav onhover-dropdown p-0 me-0">
+                <div class="media profile-media"><img class="b-r-10" src="../assets/images/dashboard/profile.jpg" alt="">
+                  <div class="media-body"><span>Emay Walter</span>
+                    <p class="mb-0 font-roboto">Admin <i class="middle fa fa-angle-down"></i></p>
+                  </div>
+                </div>
+                <ul class="profile-dropdown onhover-show-div">
+                  <li><a href="#"><i data-feather="user"></i><span>Account </span></a></li>
+                  <li><a href="#"><i data-feather="log-in"> </i><span>Log in</span></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="page-body-wrapper horizontal-menu">
+        <!-- Page Sidebar Start-->
+        <div class="sidebar-wrapper">
+          <div>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a>
+              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+            </div>
+            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+            <nav class="sidebar-main">
+              <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+              <div id="sidebar-menu">
+                <ul class="sidebar-links" id="simple-bar">
+                  <li class="back-btn">
+                    <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                  </li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="../theme/index.html" target="_blank"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="#"><i data-feather="anchor"></i><span>Starter kit</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a class="submenu-title" href="#">color version<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
+                        <ul class="nav-sub-childmenu submenu-content">
+                          <li><a href="index.html">Layout Light</a></li>
+                          <li><a href="layout-dark.html">Layout Dark</a></li>
+                        </ul>
+                      </li>
+                      <li>     <a class="submenu-title" href="#">Page layout<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
+                        <ul class="nav-sub-childmenu submenu-content">
+                          <li><a href="boxed.html">Boxed</a></li>
+                          <li><a href="layout-rtl.html">RTL</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="hide-on-scroll.html"><span>Hide menu on Scroll</span></a></li>
+                      <li>     <a class="submenu-title" href="#">Footers<span class="sub-arrow"><i class="fa fa-chevron-right"></i></span></a>
+                        <ul class="nav-sub-childmenu submenu-content">
+                          <li><a href="footer-light.html">Footer Light</a></li>
+                          <li><a href="footer-dark.html">Footer Dark</a></li>
+                          <li><a href="footer-fixed.html">Footer Fixed</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="http://support.pixelstrap.com/help-center" target="_blank"><i data-feather="headphones"></i><span>Raise Support</span></a></li>
+                  <li class="sidebar-list"><a class="sidebar-link sidebar-title" href="../document/index.html" target="_blank"><i data-feather="file-text"></i><span>Documentation                                    </span></a></li>
+                </ul>
+              </div>
+              <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
+            </nav>
+          </div>
+        </div>
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-6">
+                  <h3>Layout dark</h3>
+                </div>
+                <div class="col-6">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Color version</li>
+                    <li class="breadcrumb-item active">Layout dark</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            @RenderBody()
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12 footer-copyright text-center">
+                <p class="mb-0">Copyright 2020 © Cuba theme by pixelstrap  </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    
+
+    <environment exclude="Development">
+        <script src="~/js/site.min.js" type="text/javascript"></script>
+    </environment>
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery.js" type="text/javascript"></script>
+        <script src="~/lib/popper.js/umd/popper.js" type="text/javascript"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+        <script src="~/js/validation.js" type="text/javascript"></script>
+        <script src="~/lib/ckeditor5/ckeditor.js" type="text/javascript"></script>
+        <script src="~/lib/ckeditor5/translations/vi.min.js" type="text/javascript"></script>
+
+        <script src="~/assets/js/owlcarousel/owl.carousel.js" type="text/javascript"></script>
+        <script src="~/assets/js/tooltip-init.js" type="text/javascript"></script>
+        <script src="~/assets/js/animation/wow/wow.min.js" type="text/javascript"></script>
+        <script src="~/assets/js/landing.js" type="text/javascript"></script>
+        <script src="~/assets/js/landing_sticky.js" type="text/javascript"></script>
+
+        <script src="~/js/site.js" type="text/javascript"></script>
+        <script src="~/app/shared/kingflix.js" type="text/javascript"></script>
+    </environment>
+@RenderSection("Scripts", required: false)
+</body>
+</html>

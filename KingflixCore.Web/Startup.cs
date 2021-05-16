@@ -20,6 +20,7 @@ using KingflixCore.EF.Interface;
 using Microsoft.Extensions.Options;
 using KingflixCore.Services.Interface;
 using KingflixCore.Services.Implementation;
+using AutoMapper;
 
 namespace KingflixCore.Web
 {
@@ -75,6 +76,7 @@ namespace KingflixCore.Web
             });
             //services.AddImageResizer();
             services.AddAutoMapper(typeof(Startup));
+            
             services.AddAuthentication()
                 .AddFacebook(facebookOpts =>
                 {
@@ -145,6 +147,7 @@ namespace KingflixCore.Web
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<>), typeof(EFRepository<>));
             services.AddTransient(typeof(IEmailService), typeof(EmailService));
+            services.AddTransient(typeof(IBlogService), typeof(BlogService));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
         }
@@ -178,11 +181,11 @@ namespace KingflixCore.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "Admin",
-                    pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "areaRoute",
+                    pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

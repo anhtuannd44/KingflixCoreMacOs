@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KingflixCore.Domain.Enums;
+using KingflixCore.Domain.Interfaces;
 
 namespace KingflixCore.Domain.DomainModel
 {
     [Table("Category")]
-        public class Category
+    public class Category : IDateTracking
     {
         public Category()
         {
@@ -24,7 +25,7 @@ namespace KingflixCore.Domain.DomainModel
         public TypeOfAccount ProductType { get; set; }
         public TypeOfCategory CategoryType { get; set; } //Type Of Category: Netflix/Upsale/Other
         public DateTime DateCreated { get; set; }
-        public DateTime? DateModified { get; set; }
+        public DateTime DateModified { get; set; }
         public string Details { get; set; }
         public string ServiceInfo { get; set; }
         public string PromotionInfo { get; set; }

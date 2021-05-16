@@ -7,17 +7,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@ViewData["Title"]</title>
-    <meta name="description" content="@ViewData["MetaKeyword"]">
-    <meta name="keywords" content="@ViewData["MetaDescription"]" />
-
-    <!-- Mobile specific metas  -->
+    <title>Kingflix | @ViewData["Title"]</title>
+    <meta name="description" content='@ViewData["MetaKeyword"]'>
+    <meta name="keywords" content='@ViewData["MetaDescription"]' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Favicons Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-    <!-- CSS style for website-->
 
     <environment exclude="Development">
         <link href="~/css/site.min.css" rel="stylesheet" />
@@ -29,7 +23,7 @@
     </environment>
 
 </head>
-<body class="@ViewData["BodyClass"] landing-page">
+<body class='@ViewData["BodyClass"] landing-page'>
     <div class="tap-top"><i data-feather="chevrons-up"></i></div>
     <div class="sticky-header">
         <header>

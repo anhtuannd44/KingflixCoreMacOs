@@ -20,8 +20,16 @@ namespace KingflixCore.EF
         {
             await _context.AddAsync(entity);
         }
-
-        public IQueryable<T> GetList(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        public IQueryable<T> GetList(Expression<Func<T, bool>> predicate = null)
+        {
+            IQueryable<T> items = _context.Set<T>();
+            if (predicate != null)
+            {
+                items = items.Where(predicate);
+            }
+            return items;
+        }
+        public IQueryable<T> GetList(params Expression<Func<T, object>>[] includeProperties)
         {
             IQueryable<T> items = _context.Set<T>();
             if (includeProperties != null)
@@ -31,7 +39,11 @@ namespace KingflixCore.EF
                     items = items.Include(includeProperty);
                 }
             }
-            return items.Where(predicate);
+            return items;
+        }
+        public IQueryable<T> GetList(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        {
+            return GetList(includeProperties).Where(predicate);
         }
 
         public async Task<T> FindByIdAsync(object id)

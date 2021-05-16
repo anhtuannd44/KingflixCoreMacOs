@@ -8,27 +8,33 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using KingflixCore.EF.Extensions;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Linq;
+using KingflixCore.Domain.Interfaces;
+using KingflixCore.EF;
+using System.Threading;
 
 namespace KingflixCore.EF
 {
     public class AppDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     {
-        public virtual DbSet<Blog> Blog { get; set;}
-        public virtual DbSet<BlogCategory> BlogCategory { get; set;}
-        public virtual DbSet<Category> Category { get; set;}
-        public virtual DbSet<FlashSale> FlashSale { get; set;}
-        public virtual DbSet<FlashSaleCategory> FlashSaleCategory { get; set;}
-        public virtual DbSet<GiftCardOrder> GiftCardOrder { get; set;}
-        public virtual DbSet<Order> Order { get; set;}
-        public virtual DbSet<OrderDetails> OrderDetails { get; set;}
-        public virtual DbSet<Payment> Payment { get; set;}
-        public virtual DbSet<Price> Price { get; set;}
-        public virtual DbSet<Product> Product { get; set;}
-        public virtual DbSet<Profile> Profile { get; set;}
-        public virtual DbSet<Support> Support { get; set;}
-        public virtual DbSet<Voucher> Voucher { get; set;}
-        public virtual DbSet<VoucherCategory> VoucherCategory { get; set;}
-        public virtual DbSet<VoucherChild> VoucherChild { get; set;}
+        public virtual DbSet<Blog> Blog { get; set; }
+        public virtual DbSet<BlogCategory> BlogCategory { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<FlashSale> FlashSale { get; set; }
+        public virtual DbSet<FlashSaleCategory> FlashSaleCategory { get; set; }
+        public virtual DbSet<GiftCardOrder> GiftCardOrder { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
+        public virtual DbSet<Payment> Payment { get; set; }
+        public virtual DbSet<Price> Price { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Profile> Profile { get; set; }
+        public virtual DbSet<Support> Support { get; set; }
+        public virtual DbSet<Voucher> Voucher { get; set; }
+        public virtual DbSet<VoucherCategory> VoucherCategory { get; set; }
+        public virtual DbSet<VoucherChild> VoucherChild { get; set; }
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
@@ -67,10 +73,26 @@ namespace KingflixCore.EF
             builder.AddConfiguration(new SupportConfiguration());
             builder.AddConfiguration(new VoucherCategoryConfiguration());
             builder.AddConfiguration(new VoucherConfiguration());
-
+        }
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var modified = ChangeTracker.Entries().Where(e => e.State == EntityState.Modified || e.State == EntityState.Added);
+            foreach (EntityEntry item in modified)
+            {
+                var changedOrAddedItem = item.Entity as IDateTracking;
+                if (changedOrAddedItem != null)
+                {
+                    if (item.State == EntityState.Added)
+                    {
+                        changedOrAddedItem.DateCreated = DateTime.Now;
+                    }
+                    changedOrAddedItem.DateModified = DateTime.Now;
+                }
+            }
+            return await base.SaveChangesAsync();
         }
     }
-    
+
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         public AppDbContext CreateDbContext(string[] args)
